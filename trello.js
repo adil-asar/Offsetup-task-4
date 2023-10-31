@@ -23,10 +23,17 @@ mainTaskButton.addEventListener("click", function () {
 // function for add sub task
 function addSubTask(mainTaskIndex) {
   const subTaskInput = document.getElementById("sub-task-" + mainTaskIndex);
+  const subtaskassignInput = document .getElementById("sub-task-assign" + mainTaskIndex);
   const subTaskText = subTaskInput.value;
+  const subTaskassignText =subtaskassignInput.value;
 
   if (subTaskText) {
-    AllTasks[mainTaskIndex].subTasks.push(subTaskText);
+    AllTasks[mainTaskIndex].subTasks.push(
+      {
+        subinput1:subTaskText,
+        subinput2:subTaskassignText
+    }
+      );
       displayTasks();
       subTaskInput.value = "";
   }
@@ -48,25 +55,35 @@ function displayTasks() {
     
     // Subtask input and button
     const subinputdiv = document.createElement('div');
+    // first
     const subinput = document.createElement('input');
     subinput.id = "sub-task-" + index;
     subinput.type = "text";
     subinput.placeholder = "Add a sub-task";
+    // second 
+    const subinputassign = document.createElement('input');
+    subinputassign.id = "sub-task-assign" + index;
+    subinputassign.type = "text";
+    subinputassign.placeholder = "Add a sub-task assign";
     const subTaskButton = document.createElement("button");
     subTaskButton.innerHTML = "Add Sub-Task";
     subTaskButton.onclick = () => addSubTask(index);
 
      // sub task list
-    const subTaskList = document.createElement("div");
+const subTaskList = document.createElement("div");
 subinputdiv.appendChild(subinput);
+subinputdiv.appendChild(subinputassign)
 subinputdiv.appendChild(subTaskButton);
 task.appendChild(subTaskList);
 
     // Display existing subtasks
     mainTask.subTasks.forEach((subTask) => {
       const subTaskItem = document.createElement("p");
-      subTaskItem.innerHTML = subTask;
+      const subTaskItemassign = document.createElement("p");
+      subTaskItem.innerHTML = subTask.subinput1;
+      subTaskItemassign.innerHTML = subTask.subinput2;
       subTaskList.appendChild(subTaskItem);
+      subTaskList.appendChild(subTaskItemassign);
     });
     
     // "Add New" button for subtasks
