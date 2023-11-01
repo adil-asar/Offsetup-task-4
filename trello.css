@@ -138,17 +138,15 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-}
-.sub-task-list:hover {
-  background-color: lightblue;
+  flex-direction: column;
 }
 .paragraph {
-  margin-bottom: 5px;
-  width: 50%;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   text-transform: capitalize;
   initial-letter: 2px;
   color: rgb(247, 183, 49);
+  margin: 3px auto;
+
 }
 
 .task-date {
@@ -181,4 +179,16 @@
   padding: 1.5rem;
   background-color: rgb(48, 57, 82);
   border-radius: 10px;
+ 
+}
+
+.list{
+    width: 100%;
+    text-align: center;
+    background-color: rgb(48, 57, 82);
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column-reverse;
 }

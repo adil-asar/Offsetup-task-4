@@ -49,19 +49,23 @@ function getCurrentDateTime() {
 // function for add sub task
 function addSubTask(mainTaskIndex) {
   const subTaskInput = document.getElementById("sub-task-" + mainTaskIndex);
-  const subtaskselection = document.getElementById( "sub-task-select-" + mainTaskIndex
-  );
+  const subtaskselection = document.getElementById( "sub-task-select-" + mainTaskIndex );
+  const subtaskassign = document.getElementById( "sub-task-assign" + mainTaskIndex );
   const subTaskText = subTaskInput.value;
   const subTaskSelectText =subtaskselection.value;
+  const subtaskassignText = subtaskassign.value;
 
-  if (subTaskText && subTaskSelectText) {
+  if (subTaskText && subTaskSelectText && subtaskassignText) {
     AllTasks[mainTaskIndex].subTasks.push({
       subinput1: subTaskText,
       subinput2:subTaskSelectText ,
+      subinput3:subtaskassignText
     });
     displayTasks();
     subTaskInput.value = "";
     subtaskselection.value = "";
+    subtaskassign.value="";
+
   }
 }
 
@@ -146,14 +150,22 @@ function displayTasks() {
 
     // Display existing subtasks
     mainTask.subTasks.forEach((subTask) => {
+      const listforItem = document.createElement('div');
+      listforItem.classList.add('list')
+      subTaskList.appendChild(listforItem);
+
       const subTaskItem = document.createElement("p");
       const subTaskItemSelect = document.createElement("p");
+      const subTaskItemAssign = document.createElement("p");
       subTaskItem.classList.add('paragraph')
       subTaskItemSelect.classList.add('paragraph')
-      subTaskItem.innerHTML =  subTask.subinput1;
-      subTaskItemSelect.innerHTML =  subTask.subinput2;
-      subTaskList.appendChild(subTaskItem);
-      subTaskList.appendChild(subTaskItemSelect);
+      subTaskItemAssign.classList.add('paragraph');
+      subTaskItem.innerHTML ="Task Description : " +  subTask.subinput1;
+      subTaskItemSelect.innerHTML ="Task Assign To : " + subTask.subinput2;
+      subTaskItemAssign.innerHTML="Task Name : " + subTask.subinput3;
+      listforItem.appendChild(subTaskItem);
+      listforItem.appendChild(subTaskItemSelect);
+      listforItem.appendChild(subTaskItemAssign)
     });
 
     // close model
