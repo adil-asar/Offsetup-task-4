@@ -96,15 +96,15 @@ function displayTasks() {
     const subinput = document.createElement("input");
     subinput.id = "sub-task-" + index;
     subinput.type = "text";
-    subinput.placeholder = "Add Sub Task Name";
+    subinput.placeholder = "Add Sub Task Description";
     subinput.classList.add('sub-input');
     // second
-    // const subinputassign = document.createElement("input");
-    // subinputassign.id = "sub-task-assign" + index;
-    // subinputassign.type = "text";
-    // subinputassign.placeholder = "Add Sub Task ";
-    // subinputassign.classList.add('sub-input');
-
+    const subinputassign = document.createElement("input");
+    subinputassign.id = "sub-task-assign" + index;
+    subinputassign.type = "text";
+    subinputassign.placeholder = "Add Sub Task ";
+    subinputassign.classList.add('sub-input');
+// select
     const subTaskSelect = document.createElement("select"); 
     subTaskSelect.id = "sub-task-select-" +  index;
     subTaskSelect.classList.add('sub-input');
@@ -137,7 +137,7 @@ function displayTasks() {
     const subTaskList = document.createElement("div");
     subTaskList.classList.add('sub-task-list')
     subinputdiv.appendChild(subinput);
-    // subinputdiv.appendChild(subinputassign);
+    subinputdiv.appendChild(subinputassign);
     subinputdiv.appendChild(subTaskSelect);
     subinputdiv.appendChild(subTaskButton);
     // subinputdiv.appendChild(modelClose)
