@@ -116,7 +116,7 @@
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   letter-spacing: 1px;
   font-weight: 100;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
   text-transform: capitalize;
   color: rgb(247, 183, 49);
 }
@@ -128,15 +128,15 @@
   border-radius: 5px;
   margin-top: 10px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
 }
 
 .sub-task-list {
   padding: 5px 10px;
   border-radius: 5px;
-  margin-bottom: 1rem !important;
+  /* margin: 1rem !important; */
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; 
   justify-content: space-between;
   flex-direction: column;
 }
@@ -146,7 +146,7 @@
   initial-letter: 2px;
   color: rgb(247, 183, 49);
   margin: 3px auto;
-
+order: 1;
 }
 
 .task-date {
@@ -186,9 +186,25 @@
     width: 100%;
     text-align: center;
     background-color: rgb(48, 57, 82);
-    margin: 5px 0;
-    padding: 10px;
-    border-radius: 5px;
+    margin-top: 15px ;
+    padding: 15px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column-reverse;
+}
+ .operation-btns{
+width: 100%;
+margin-top: 7px;
+display: flex;
+justify-content: space-between;
+
+}
+
+.delete-sub-task{
+    background-color: rgb(247, 183, 49) !important;
+    padding: 6px 9px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }

@@ -1,41 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trello App</title>
-    <link rel="stylesheet" href="trello.css">
-</head>
-<body>
+    <link rel="stylesheet" href="trello.css" />
+  </head>
+  <body>
     <div class="main">
-       
-            <h1>Trello app using JavaScript</h1>
-        
-        <!-- Add Main Task Section  -->
-        <section class="add-main-task">
-           <input 
-           type="text"
-            name="main-task"
-            class="main-task-input"
-             id="main-task-input"
-             placeholder="Add main Task Here"
-             autocomplete="off"
-             >
-             <button id="main-task-button" >Add Main Task</button>
-        </section>
-        <!-- Task List  -->
-        <section class="task-list" id="task-list">
+      <h1>Trello app using JavaScript</h1>
 
-            </section>
-            
-</div>
+      <!-- Add Main Task Section  -->
+      <section class="add-main-task">
+        <input
+          type="text"
+          name="main-task"
+          class="main-task-input"
+          id="main-task-input"
+          placeholder="Add main Task Here"
+          autocomplete="off"
+        />
+        <button id="main-task-button">Add Main Task</button>
+      </section>
+      <!-- Task List  -->
+      <section class="task-list" id="task-list"></section>
+    </div>
 
- <!-- model -->
- <div class="model" id="model">
-
- </div>
-           
+    <!-- model -->
+    <div class="model" id="model"></div>
 
     <script src="trello.js"></script>
-</body>
+  </body>
 </html>
