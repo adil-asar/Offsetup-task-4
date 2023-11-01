@@ -8,18 +8,36 @@ const mainTaskInput = document.getElementById("main-task-input");
 mainTaskButton.addEventListener("click", function () {
   const mainTaskInput = document.getElementById("main-task-input");
   const taskInput = mainTaskInput.value;
-  if (taskInput.trim() !== "") {
-    const newMainTask = {
-      text: taskInput,
-      subTasks: [],
-      dateTime: getCurrentDateTime()
-    };
-    // push to main array name is all tasks
-    AllTasks.push(newMainTask);
-    mainTaskInput.value = "";
-    displayTasks();
+  if (AllTasks.length === 3) {
+    mainTaskInput.style.display="none"
+    mainTaskButton.style.display="none"
+  }else{
+    if (taskInput.trim() !== "") {
+      const newMainTask = {
+        text: taskInput,
+        subTasks: [],
+        dateTime: getCurrentDateTime()
+      };
+      // push to main array name is all tasks
+      AllTasks.push(newMainTask);
+      mainTaskInput.value = "";
+      displayTasks();
+      hideinput();
+    }
   }
+  
 });
+
+// hide main input
+
+function hideinput() {
+  if (AllTasks.length === 3) {
+    mainTaskInput.style.display="none"
+    mainTaskButton.style.display="none"
+  }
+}
+
+hideinput();
 
 // function for adding date and time
 function getCurrentDateTime() {
