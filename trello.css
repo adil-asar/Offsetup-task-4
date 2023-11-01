@@ -120,13 +120,18 @@
 .sub-task-list{
     padding: 5px 10px;
     border-radius: 5px;
+    margin-bottom: 1rem !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 .sub-task-list:hover{
     background-color: lightblue;
 }
 .paragraph{
     margin-bottom: 5px;
+    width: 50%;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-transform: capitalize ;
     initial-letter: 2px;
-    font-weight: bold;
 }

@@ -23,20 +23,19 @@ mainTaskButton.addEventListener("click", function () {
 // function for add sub task
 function addSubTask(mainTaskIndex) {
   const subTaskInput = document.getElementById("sub-task-" + mainTaskIndex);
-  const subtaskassignInput = document.getElementById(
-    "sub-task-assign" + mainTaskIndex
+  const subtaskselection = document.getElementById( "sub-task-select-" + mainTaskIndex
   );
   const subTaskText = subTaskInput.value;
-  const subTaskassignText = subtaskassignInput.value;
+  const subTaskSelectText =subtaskselection.value;
 
-  if (subTaskText && subTaskassignText) {
+  if (subTaskText && subTaskSelectText) {
     AllTasks[mainTaskIndex].subTasks.push({
       subinput1: subTaskText,
-      subinput2: subTaskassignText,
+      subinput2:subTaskSelectText ,
     });
     displayTasks();
     subTaskInput.value = "";
-    subtaskassignInput.value = "";
+    subtaskselection.value = "";
   }
 }
 
@@ -60,14 +59,37 @@ function displayTasks() {
     const subinput = document.createElement("input");
     subinput.id = "sub-task-" + index;
     subinput.type = "text";
-    subinput.placeholder = "Add Sub Task Assign";
+    subinput.placeholder = "Add Sub Task Name";
     subinput.classList.add('sub-input');
     // second
-    const subinputassign = document.createElement("input");
-    subinputassign.id = "sub-task-assign" + index;
-    subinputassign.type = "text";
-    subinputassign.placeholder = "Add Sub Task ";
-    subinputassign.classList.add('sub-input');
+    // const subinputassign = document.createElement("input");
+    // subinputassign.id = "sub-task-assign" + index;
+    // subinputassign.type = "text";
+    // subinputassign.placeholder = "Add Sub Task ";
+    // subinputassign.classList.add('sub-input');
+
+    const subTaskSelect = document.createElement("select"); 
+    subTaskSelect.id = "sub-task-select-" +  index;
+    subTaskSelect.classList.add('sub-input');
+    // option1
+    const option1 = document.createElement('option')
+    option1.value="Select Name"
+    option1.innerHTML=option1.value;
+    // option2
+    const option2 = document.createElement('option')
+    option2.value="Asad"
+    option2.innerHTML=option2.value;
+    // option3
+    const option3 = document.createElement('option')
+    option3.value="Dawood"
+    option3.innerHTML=option3.value;
+    subTaskSelect.appendChild(option1);
+    subTaskSelect.appendChild(option2);
+    subTaskSelect.appendChild(option3);
+  
+
+  
+
     // button
     const subTaskButton = document.createElement("button");
     subTaskButton.innerHTML = "Add Sub-Task";
@@ -78,20 +100,22 @@ function displayTasks() {
     const subTaskList = document.createElement("div");
     subTaskList.classList.add('sub-task-list')
     subinputdiv.appendChild(subinput);
-    subinputdiv.appendChild(subinputassign);
+    // subinputdiv.appendChild(subinputassign);
+    subinputdiv.appendChild(subTaskSelect);
     subinputdiv.appendChild(subTaskButton);
     task.appendChild(subTaskList);
+    
 
     // Display existing subtasks
     mainTask.subTasks.forEach((subTask) => {
       const subTaskItem = document.createElement("p");
-      const subTaskItemassign = document.createElement("p");
+      const subTaskItemSelect = document.createElement("p");
       subTaskItem.classList.add('paragraph')
-      subTaskItemassign.classList.add('paragraph')
+      subTaskItemSelect.classList.add('paragraph')
       subTaskItem.innerHTML =  subTask.subinput1;
-      subTaskItemassign.innerHTML =  subTask.subinput2;
+      subTaskItemSelect.innerHTML =  subTask.subinput2;
       subTaskList.appendChild(subTaskItem);
-      subTaskList.appendChild(subTaskItemassign);
+      subTaskList.appendChild(subTaskItemSelect);
     });
 
     // "Add New" button for subtasks
@@ -105,6 +129,8 @@ function displayTasks() {
       task.appendChild(subinputdiv);
       subinputdiv.appendChild(subinput);
       subinputdiv.appendChild(subTaskButton);
+      
+      
     });
 
     // Append elements to the task
