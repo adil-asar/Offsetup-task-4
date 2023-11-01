@@ -143,6 +143,7 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-transform: capitalize ;
     initial-letter: 2px;
+    color: rgb(247, 183, 49);
 }
 
 .task-date{
@@ -155,4 +156,24 @@
     border-radius: 5px;
     color: rgb(247, 183, 49);
 
+}
+
+
+/* model */
+
+.model{
+    width: 100%;
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0; left: 0;
+    background-color: rgb(89, 98, 117);
+}
+.model-div{
+    background-color: bisque;
+    width: 30%;
+    padding: 1rem;
+   background-color: rgb(48, 57, 82);
 }

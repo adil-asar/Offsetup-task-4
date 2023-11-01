@@ -87,7 +87,11 @@ function displayTasks() {
     datesection.innerHTML = "Created On " + mainTask.dateTime;
 
     // Subtask input and button
+
+    const model = document.createElement('div');
+    model.classList.add('model')
     const subinputdiv = document.createElement("div");
+    subinputdiv.classList.add('model-div')
     // first
     const subinput = document.createElement("input");
     subinput.id = "sub-task-" + index;
@@ -120,13 +124,13 @@ function displayTasks() {
     subTaskSelect.appendChild(option2);
     subTaskSelect.appendChild(option3);
   
-
-  
-
     // button
     const subTaskButton = document.createElement("button");
+    const modelClose = document.createElement("button");
     subTaskButton.innerHTML = "Add Sub-Task";
-    subTaskButton.classList.add('sub-task-btn')
+    modelClose.innerHTML="Close"
+    subTaskButton.classList.add('sub-task-btn');
+    modelClose.classList.add('sub-task-model')
     subTaskButton.onclick = () => addSubTask(index);
 
     // sub task list
@@ -136,6 +140,7 @@ function displayTasks() {
     // subinputdiv.appendChild(subinputassign);
     subinputdiv.appendChild(subTaskSelect);
     subinputdiv.appendChild(subTaskButton);
+    // subinputdiv.appendChild(modelClose)
     task.appendChild(subTaskList);
     
 
@@ -151,6 +156,11 @@ function displayTasks() {
       subTaskList.appendChild(subTaskItemSelect);
     });
 
+    // close model
+    modelClose.addEventListener('click',function(){
+      model.style.display="none";
+    })
+
     // "Add New" button for subtasks
     const btnForsubTask = document.createElement("button");
     btnForsubTask.innerHTML = "Add New ";
@@ -159,7 +169,9 @@ function displayTasks() {
 
     // Event listener for "Add New" button
     btnForsubTask.addEventListener("click", function () {
-      task.appendChild(subinputdiv);
+      task.appendChild(model);
+      model.style.display="flex"
+      model.appendChild(subinputdiv);
       subinputdiv.appendChild(subinput);
       subinputdiv.appendChild(subTaskButton);
       
