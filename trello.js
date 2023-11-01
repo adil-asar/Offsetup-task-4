@@ -12,6 +12,7 @@ mainTaskButton.addEventListener("click", function () {
     const newMainTask = {
       text: taskInput,
       subTasks: [],
+      dateTime: getCurrentDateTime()
     };
     // push to main array name is all tasks
     AllTasks.push(newMainTask);
@@ -19,6 +20,13 @@ mainTaskButton.addEventListener("click", function () {
     displayTasks();
   }
 });
+
+// function for adding date and time
+function getCurrentDateTime() {
+  const now = new Date();
+  const options = { weekday: 'long',  year: 'numeric', month: 'short', day: 'numeric',  };
+  return now.toLocaleString('en-US', options);
+}
 
 // function for add sub task
 function addSubTask(mainTaskIndex) {
@@ -52,6 +60,13 @@ function displayTasks() {
     maintitle.classList.add("task-title")
     task.appendChild(maintitle);
     maintitle.innerHTML = mainTask.text;
+
+    // for adding date 
+
+    const datesection = document.createElement('p');
+    task.appendChild(datesection);
+    datesection.classList.add("task-date")
+    datesection.innerHTML = "Created On " + mainTask.dateTime;
 
     // Subtask input and button
     const subinputdiv = document.createElement("div");
