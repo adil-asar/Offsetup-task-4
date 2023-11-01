@@ -22,7 +22,7 @@ mainTaskButton.addEventListener("click", function () {
       AllTasks.push(newMainTask);
       mainTaskInput.value = "";
       displayTasks();
-      hideinput();
+      hideinput()
     }
   }
   
