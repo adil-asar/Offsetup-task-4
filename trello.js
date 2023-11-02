@@ -251,9 +251,9 @@ function displayTasks() {
       option1edit.value = "Select Name";
       option2edit.value = "Asad";
       option3edit.value = "Dawood";
-      option1edit.innerHTML = option3edit.value;
+      option1edit.innerHTML = option1edit.value;
       option2edit.innerHTML = option2edit.value;
-      option3edit.innerHTML = option1edit.value;
+      option3edit.innerHTML = option3edit.value;
 
       subTaskItem.classList.add("paragraph");
       subTaskItemSelect.classList.add("paragraph");
