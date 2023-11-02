@@ -34,6 +34,7 @@ function hideinput() {
     mainTaskInput.style.display = "none";
     mainTaskButton.style.display = "none";
   }
+  
 }
 
 hideinput();
@@ -84,6 +85,7 @@ function deleteSubTask(mainTaskIndex, subTaskIndex) {
 function deleteMainTask(mainTaskIndex) {
   AllTasks.splice(mainTaskIndex, 1);
   displayTasks();
+
 }
 
 function displayTasks() {
@@ -123,6 +125,7 @@ function displayTasks() {
     // add eventlistener to delete main task
     mainTaskDelete.addEventListener("click", function () {
       deleteMainTask(index);
+      hideinput();
     });
 
     //add eventlistener to edit main task
@@ -266,7 +269,7 @@ function displayTasks() {
       subtaskinput1.classList.add("sub-input");
       subtaskinput2.classList.add("sub-input");
       subtaskinput3.classList.add("sub-input");
-      updatesubtask.classList.add("delete-sub-task");
+      updatesubtask.classList.add("update-sub-task");
       listforItem.appendChild(subTaskItem);
       listforItem.appendChild(subTaskItemSelect);
       listforItem.appendChild(subTaskItemAssign);
@@ -286,9 +289,9 @@ function displayTasks() {
         listforItem.appendChild(subtaskmodel);
         subtaskmodel.style.display = "flex";
         subtaskmodel.appendChild(subtaskdialog);
-        subtaskdialog.appendChild(subtaskinput1);
-        subtaskdialog.appendChild(subtaskinput2);
         subtaskdialog.appendChild(subtaskinput3);
+        subtaskdialog.appendChild(subtaskinput2);
+        subtaskdialog.appendChild(subtaskinput1);
         subtaskdialog.appendChild(updatesubtask);
         subtaskinput2.appendChild(option1edit);
         subtaskinput2.appendChild(option2edit);

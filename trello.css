@@ -291,5 +291,15 @@ justify-content: space-between;
   padding: 1.5rem;
   background-color: rgb(48, 57, 82);
   border-radius: 10px;
+ display: flex;
+ flex-direction: column;
+}
+.update-sub-task{
+  background-color: rgb(247, 183, 49) !important;
+  padding: 6px 9px;
+  border: none;
+  border-radius: 5px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; 
+  order: 4 !important;
  
 }
