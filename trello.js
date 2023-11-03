@@ -422,9 +422,11 @@ function displayTasks() {
       if (hasSubtasks) {
         btnforsortAB.removeAttribute("hidden");
         randomsort.removeAttribute("hidden");
+        pushbtn.removeAttribute("hidden");
       } else {
         btnforsortAB.setAttribute("hidden", "true");
         randomsort.setAttribute("hidden", "true");
+        pushbtn.setAttribute("hidden", "true");
       }
     }
 
