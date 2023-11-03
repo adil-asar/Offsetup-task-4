@@ -233,7 +233,8 @@ justify-content: space-between;
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin: 5px 0;
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
 
 .main-task-delete-btn{
@@ -308,5 +309,5 @@ justify-content: space-between;
   display: flex;
   width: 100%;
   margin-top: 10px;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
