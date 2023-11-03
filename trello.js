@@ -110,12 +110,12 @@ function displayTasks() {
     updatebtn.classList.add("edit-main-task");
     updatebtn.innerText = "Update";
 
- const pushmodel = document.createElement("div");
-    const pushdialog=document.createElement("div");
+    const pushmodel = document.createElement("div");
+    const pushdialog = document.createElement("div");
     const selectinputforpush = document.createElement("select");
-    const btnmove =document.createElement("button");
-    btnmove.innerHTML="Move"
-    btnmove.classList.add("add-new-btn")
+    const btnmove = document.createElement("button");
+    btnmove.innerHTML = "Move";
+    btnmove.classList.add("add-new-btn");
 
     // delete and edit main task btn
     const mainTaskDelete = document.createElement("button");
@@ -125,8 +125,8 @@ function displayTasks() {
     editMainTaskBtn.classList.add("edit-main-task");
     pushbtn.classList.add("edit-main-task");
     pushmodel.classList.add("model");
-    pushdialog.classList.add("model-div")
-    selectinputforpush.classList.add("sub-input")
+    pushdialog.classList.add("model-div");
+    selectinputforpush.classList.add("sub-input");
     mainTaskDelete.innerHTML = "x";
     editMainTaskBtn.innerText = "Edit";
     pushbtn.innerHTML = "Move";
@@ -135,14 +135,13 @@ function displayTasks() {
     mainbtndiv.appendChild(pushbtn);
 
     // open push model
-    pushbtn.addEventListener("click",function (mainTaskIndex) {
-      
-      pushmodel.style.display="flex";
+    pushbtn.addEventListener("click", function (mainTaskIndex) {
+      pushmodel.style.display = "flex";
       mainbtndiv.appendChild(pushmodel);
       pushmodel.appendChild(pushdialog);
       pushdialog.appendChild(selectinputforpush);
       pushdialog.appendChild(btnmove);
-      AllTasks.forEach((mainTask,i)=>{
+      AllTasks.forEach((mainTask, i) => {
         if (i !== mainTaskIndex) {
           const option = document.createElement("option");
           option.value = i;
@@ -150,29 +149,27 @@ function displayTasks() {
           selectinputforpush.appendChild(option);
         }
       });
-    }) ;
+    });
 
     // now move the subtasks
-btnmove.addEventListener("click",function () {
-  const mainTaskIndex = index; // Capture the current main task index
-  const targetMainTaskIndex = selectinputforpush.value;
-  if (targetMainTaskIndex !=="") {
-    moveSubtasks(mainTaskIndex, targetMainTaskIndex);
-      pushmodel.style.display="none";
-  }
+    btnmove.addEventListener("click", function () {
+      const mainTaskIndex = index; // Capture the current main task index
+      const targetMainTaskIndex = selectinputforpush.value;
+      if (targetMainTaskIndex !== "") {
+        moveSubtasks(mainTaskIndex, targetMainTaskIndex);
+        pushmodel.style.display = "none";
+      }
+    });
 
-})
-
-// Function to move subtasks from one main task to another
-function moveSubtasks(sourceMainTaskIndex, targetMainTaskIndex) {
-  if (sourceMainTaskIndex !== targetMainTaskIndex) {
-    const subtasksToMove = AllTasks[sourceMainTaskIndex].subTasks;
-    AllTasks[targetMainTaskIndex].subTasks.push(...subtasksToMove);
-    AllTasks[sourceMainTaskIndex].subTasks = [];
-    displayTasks();
-  }
-}
-
+    // Function to move subtasks from one main task to another
+    function moveSubtasks(sourceMainTaskIndex, targetMainTaskIndex) {
+      if (sourceMainTaskIndex !== targetMainTaskIndex) {
+        const subtasksToMove = AllTasks[sourceMainTaskIndex].subTasks;
+        AllTasks[targetMainTaskIndex].subTasks.push(...subtasksToMove);
+        AllTasks[sourceMainTaskIndex].subTasks = [];
+        displayTasks();
+      }
+    }
 
     // add eventlistener to delete main task
     mainTaskDelete.addEventListener("click", function () {
@@ -391,7 +388,6 @@ function moveSubtasks(sourceMainTaskIndex, targetMainTaskIndex) {
       model.appendChild(subinputdiv);
       subinputdiv.appendChild(subinput);
       subinputdiv.appendChild(subTaskButton);
-     
     });
 
     // event listener for sort a to b
@@ -406,9 +402,13 @@ function moveSubtasks(sourceMainTaskIndex, targetMainTaskIndex) {
 
     btnforsortAB.addEventListener("click", function () {
       AllTasks.forEach((mainTask, index) => {
-              mainTask.subTasks.sort((a, b) => a.subinput1.localeCompare(b.subinput1));
-              AllTasks[index].subTasks.sort((a, b) => a.subinput1.localeCompare(b.subinput1));
-            });
+        mainTask.subTasks.sort((a, b) =>
+          a.subinput1.localeCompare(b.subinput1)
+        );
+        AllTasks[index].subTasks.sort((a, b) =>
+          a.subinput1.localeCompare(b.subinput1)
+        );
+      });
 
       // Update the display
       displayTasks();
@@ -416,7 +416,9 @@ function moveSubtasks(sourceMainTaskIndex, targetMainTaskIndex) {
     });
 
     function updateSortButtonsVisibility() {
-      const hasSubtasks = AllTasks.some(mainTask => mainTask.subTasks.length > 0);
+      const hasSubtasks = AllTasks.some(
+        (mainTask) => mainTask.subTasks.length > 0
+      );
       if (hasSubtasks) {
         btnforsortAB.removeAttribute("hidden");
         randomsort.removeAttribute("hidden");
@@ -425,7 +427,7 @@ function moveSubtasks(sourceMainTaskIndex, targetMainTaskIndex) {
         randomsort.setAttribute("hidden", "true");
       }
     }
-  
+
     // Call the function initially and after any updates to AllTasks
     updateSortButtonsVisibility();
 
@@ -433,8 +435,7 @@ function moveSubtasks(sourceMainTaskIndex, targetMainTaskIndex) {
     task.appendChild(divforsorting);
     divforsorting.appendChild(btnForsubTask);
     divforsorting.appendChild(btnforsortAB);
-      divforsorting.appendChild(randomsort);
+    divforsorting.appendChild(randomsort);
     task.appendChild(subTaskList);
-  
   });
 }
