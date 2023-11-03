@@ -118,7 +118,7 @@ function displayTasks() {
     mainTaskDelete.classList.add("main-task-delete-btn");
     editMainTaskBtn.classList.add("edit-main-task");
     mainTaskDelete.innerHTML = "x";
-    editMainTaskBtn.innerText = "Edit Main Task";
+    editMainTaskBtn.innerText = "Edit";
     mainbtndiv.appendChild(mainTaskDelete);
     mainbtndiv.appendChild(editMainTaskBtn);
 
@@ -201,7 +201,7 @@ function displayTasks() {
     // button
     const subTaskButton = document.createElement("button");
     const modelClose = document.createElement("button");
-    subTaskButton.innerHTML = "Add Sub-Task";
+    subTaskButton.innerHTML = "Add";
     modelClose.innerHTML = "Close";
     subTaskButton.classList.add("sub-task-btn");
     modelClose.classList.add("sub-task-model");
@@ -317,11 +317,18 @@ function displayTasks() {
       model.style.display = "none";
     });
 
-    // "Add New" button for subtasks
+    // "Add New" and sorting button for subtasks
+    const divforsorting = document.createElement('div')
     const btnForsubTask = document.createElement("button");
-    btnForsubTask.innerHTML = "Add New ";
+    const btnforsortAB = document.createElement("button");
+    const randomsort = document.createElement("button");
+    btnForsubTask.innerHTML = "Add Task";
+    btnforsortAB.innerHTML="A to B"
+    randomsort.innerHTML="Random"
+    divforsorting.classList.add('sorting-operation')
     btnForsubTask.classList.add("add-new-btn");
-    btnForsubTask.classList.add("sub-task-button");
+    btnforsortAB.classList.add("add-new-btn")
+    randomsort.classList.add("add-new-btn")
 
     // Event listener for "Add New" button
     btnForsubTask.addEventListener("click", function () {
@@ -332,8 +339,30 @@ function displayTasks() {
       subinputdiv.appendChild(subTaskButton);
     });
 
+    // event listener for sort a to b
+    
+randomsort.addEventListener("click", function () {
+  AllTasks.forEach((mainTask, index) => {
+    AllTasks[index].subTasks.sort(() => Math.random() - 0.5);
+  });
+  displayTasks();
+});
+
+// event listener for sort a to b
+   btnforsortAB.addEventListener("click", function () {
+      AllTasks.forEach((mainTask, index) => {
+        AllTasks[index].subTasks.sort((a, b) => a.subinput1.localeCompare(b.subinput1));
+      });
+      displayTasks();
+    });
+
+
+
     // Append elements to the task
-    task.appendChild(btnForsubTask);
+    task.appendChild(divforsorting);
+    divforsorting.appendChild(btnForsubTask);
+    divforsorting.appendChild(btnforsortAB);
+    divforsorting.appendChild(randomsort)
     task.appendChild(subTaskList);
   });
 }

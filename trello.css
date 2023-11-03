@@ -125,7 +125,7 @@
 
 .sub-task-btn {
   background-color: rgb(247, 183, 49) !important;
-  padding: 12px 20px;
+  padding: 6px 15px;
   border: none;
   border-radius: 5px;
   margin-top: 10px;
@@ -143,7 +143,7 @@
 
 .add-new-btn {
   background-color: rgb(247, 183, 49) !important;
-  padding: 12px 20px;
+  padding: 5px 10px;
   border: none;
   border-radius: 5px;
   margin-top: 10px;
@@ -206,7 +206,7 @@ order: 1;
     width: 100%;
     text-align: center;
     background-color: rgb(48, 57, 82);
-    margin-top: 15px ;
+    margin-top: 25px ;
     padding: 15px;
     border-radius: 10px;
     display: flex;
@@ -301,5 +301,12 @@ justify-content: space-between;
   border-radius: 5px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; 
   order: 4 !important;
- 
+ width: 25%;
+ margin:10px auto;
+}
+.sorting-operation{
+  display: flex;
+  width: 100%;
+  margin-top: 10px;
+  justify-content: space-between;
 }
