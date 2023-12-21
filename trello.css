@@ -125,6 +125,7 @@
 
 .sub-task-btn {
   background-color: rgb(247, 183, 49) !important;
+ 
   padding: 6px 15px;
   border: none;
   border-radius: 5px;
@@ -143,6 +144,7 @@
 
 .add-new-btn {
   background-color: rgb(247, 183, 49) !important;
+  /* background-color: aqua; */
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
@@ -313,6 +315,7 @@ justify-content: space-between;
   margin-top: 10px;
   justify-content: space-around;
   text-align: center;
+
 }
 
 
@@ -333,12 +336,22 @@ justify-content: space-between;
 
 @media screen and (max-width: 700px) {
   .main{overflow-y: scroll;}
-  .main h1 {  font-size: 22px; }
+  .main h1 {  font-size: 20px; }
   .main .add-main-task {  width: 100%; display: flex;flex-wrap: wrap;}
   .main .add-main-task .main-task-input {width: 100%; margin-right: 0px;}
   .main .add-main-task #main-task-button { padding: 10px 15px; width: 50%;  margin:10px auto;  }
   .main .task-list { width: 100%;  grid-template-columns: repeat(1, 1fr);padding: 0; }
   .model-div { width: 90%;  padding: .5rem;    }
   .sub-task-dialog{ width: 90%;padding: .5rem;}
+  
+  .sorting-operation{
+    display: flex;
+    width: 100%;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
+  
+  }
  
 }
